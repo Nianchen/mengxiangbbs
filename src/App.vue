@@ -1,5 +1,6 @@
 <template>
   <Home></Home>
+  
 </template>
 
 <script setup>
@@ -10,6 +11,11 @@ import Home from './views/home.vue'
 *{
   margin: 0;
 }
+a{
+  text-decoration: none;
+  color:black;
+}
+
  ::-webkit-scrollbar {
      width: 0 !important;
    }

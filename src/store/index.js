@@ -1,10 +1,11 @@
 import {defineStore} from 'pinia';
-export  const userTestStore = defineStore({//需要注意的是，defineStore返回的是一个回调方法
-    id:'test',//test是该状态管理的唯一标志也可以使用defineStore(id,{});的形式
+export  const userTextStore = defineStore({//需要注意的是，defineStore返回的是一个回调方法
+    id:'user',//test是该状态管理的唯一标志也可以使用defineStore(id,{});的形式
     state(){
      return {
-         name:'hello pinia',
-         age:20
+         username:'hello pinia',
+         age:20,
+         token:"",
      }       
     },
     getters:{
@@ -13,11 +14,6 @@ export  const userTestStore = defineStore({//需要注意的是，defineStore返
         } 
     },
     actions:()=>{
-        //pinia 同步异步都放在actions里
-        addAge:function(){
-                setInterval(()=>{
-                this.age++;
-            },1000)
-        }
+       
     }
 })

@@ -3,7 +3,7 @@
     <h3>每日毒药</h3>
 
     <p>{{ demo }}</p>
-    <h5>{{ New }}</h5>
+    
   </div>
 </template>
 
@@ -13,7 +13,7 @@ import axios from "axios";
 import { computed } from "vue";
 export default {
   setup() {
-    const demo = ref("456456");
+    const demo = ref("");
     const data = ref("");
     const New = computed(() => {
       return data.value + "123123";

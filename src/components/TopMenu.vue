@@ -11,13 +11,16 @@
         
       >
         <el-menu-item index="/index">主页</el-menu-item>
-        <el-menu-item index="wen">学习资料</el-menu-item>
-        <el-menu-item index="/book">乱七八糟</el-menu-item>
+        <el-menu-item index="/materials">学习资料</el-menu-item>
+        <el-menu-item index="/detail">乱七八糟</el-menu-item>
         <el-menu-item index="other">等等</el-menu-item>
       </el-menu>
     </div>
     <div class="Login">
-      <el-button type="success"><router-link to="Login">登录</router-link></el-button>
+      <el-button type="success"  @click="open">
+        <router-link to="Login">登录</router-link>
+      
+        </el-button>
     </div>
   
   </div>
@@ -27,7 +30,7 @@
 
 </script>
     
-<style>
+<style scoped>
 .TopMenu {
   position: relative;
   float: left;

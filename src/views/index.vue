@@ -2,8 +2,8 @@
   <div class="index">
       <OneYan class="OneYan"></OneYan>
           <div class="swiper">
-            <el-carousel height="350px" width="80%">
-              <el-carousel-item v-for="item in 4" :key="item">
+            <el-carousel height="400px" width="80%">
+              <el-carousel-item v-for="item in 3" :key="item">
                 <h3 class="small">{{ item }}</h3>
               </el-carousel-item>
             </el-carousel>
@@ -14,7 +14,10 @@
     <p>工作室学习氛围良好，成员热情似火，互帮互助。</p>
     </div>
     <div class="ArticleList">
-        <Aricle></Aricle>
+      <keep-alive>
+      <Aricle></Aricle>
+      </keep-alive>
+        
     </div>
     <div class="Daily">
         <DailyLiving></DailyLiving>
@@ -26,12 +29,18 @@
 import Aricle from '../components/Aricle.vue'
 import DailyLiving from '../components/DailyLiving.vue'
 import OneYan from "../components/OneYan.vue";
+import {onActivated} from 'vue'
+
+ onActivated(()=>{
+            console.log('我是 keep-alive 存在的2')
+        })
 </script>
     
 <style>
 .index {
   width: 100%;
   position: relative;
+  /* overflow: scroll; */
 }
 .OneYan {
   position: absolute;
@@ -43,7 +52,7 @@ import OneYan from "../components/OneYan.vue";
   width: 18%;
   position: absolute;
   left: 1%;
-  top: 30%;
+  top: 25%;
 }
 .About {
   color: #646464;
@@ -62,6 +71,7 @@ import OneYan from "../components/OneYan.vue";
 .ArticleList{
   position: relative;
   width: 60%;
+  height:55vh;
   left: 50%;
   transform: translateX(-50%);
   padding: 10px;
@@ -69,7 +79,7 @@ import OneYan from "../components/OneYan.vue";
 .Daily{
   position: absolute;
   width: 20%;
-  height: 30%;
+  height: 50%;
   left: 80%;
   top: 0;
 }

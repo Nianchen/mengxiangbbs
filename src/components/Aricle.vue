@@ -5,22 +5,36 @@
         <span>文章列表</span>
       </div>
     </template>
-    <div v-for="o in 8" :key="o" class="text item">{{ "List item " + o }}</div>
-    <div class="page">
-      <!-- <el-pagination  pager-count="5" :hide-on-single-page="value" background layout="prev, pager, next" :total="200" /> -->
+   
+     <div v-for="(item,index) in Wenlist.value" :key="index" class="text item">
+      <i> <img src="../assets/文章.png" alt="" /></i>
+      <a href="#">{{'作者：'+item.author+'   '+item.title}}    <span>></span> </a>
+  
     </div>
+  
+   
+    <div class="page"></div>
   </el-card>
 </template>
     
 <script setup>
-// import { ref } from 'vue'
-// const value = ref(false)
+import { getWen } from "../network/api.js";
+import { reactive} from 'vue'
+// import {onMounted} from 'vue'
+const Wenlist = reactive([])
+
+
+getWen().then(res=>{
+    Wenlist.value =  res.data
+})  
+
 </script>
     
 <style>
 .box-card {
   position: relative;
   top: 20px;
+  height: 100%;
 }
 .box-card:hover {
   box-shadow: 0 0 8px black;
@@ -32,19 +46,27 @@
 }
 
 .text {
-  font-size: 14px;
+  font-size: 24px;
 }
 
 .item {
+  height: 35px;
+  line-height: 20px;
   margin-bottom: 10px;
+  border-bottom: 1px solid black;
 }
-
+.item a:hover {
+  color: blue;
+}
 .box-card {
   width: 100%;
 }
-.page {
-  position: relative;
-  left: 22%;
-
+i img {
+  height: 25px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+a span{
+  float: right;
 }
 </style>

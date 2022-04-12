@@ -21,16 +21,23 @@
       <div class="function">
         <el-row>
           <el-col :span="24">
-            <router-view class="Xiang"></router-view>
+            <div class="Xiang">
+              <router-view v-slot="{ Component }">
+                <transition name="fade-transform" mode="out-in">
+                  <keep-alive :include="isCached">
+                    <component :is="Component" />
+                  </keep-alive>
+                </transition>
+              </router-view>
+              <!-- <router-view></router-view> -->
+            </div>
           </el-col>
         </el-row>
       </div>
 
-      <div class="" style="position: relative">
-        <div class="footer">
-          <h1>123</h1>
-        </div>
-      </div>
+   
+       
+  
     </div>
   </div>
 </template>
@@ -44,14 +51,14 @@ import TopMenu from "../components/TopMenu.vue";
 <style>
 .view {
   width: 100%;
-  height: 100vh;
   background-color: #edf0f2;
+  height: 100vh;
   /* animation:liuguang 2s infinite linear; */
 }
-.menu{
+.menu {
   height: 10%;
 }
-.function{
+.function {
   height: 90%;
 }
 .Xiang {
@@ -59,8 +66,8 @@ import TopMenu from "../components/TopMenu.vue";
   top: 20px;
 }
 .footer {
-  position: absolute;
-  bottom: 0;
+ position: relative;
+ bottom: 0;
   width: 100%;
   height: 50px;
   background-color: black;

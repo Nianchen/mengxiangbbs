@@ -2,32 +2,30 @@
   <el-card class="box-card">
     <template #header>
       <div class="card-header">
-        <span>文章列表</span>
+        <span>近期文章</span>
       </div>
     </template>
-   
-     <div v-for="(item,index) in Wenlist.value" :key="index" class="text item">
+
+    <div v-for="(item, index) in Wenlist.value" :key="index" class="text item">
       <i> <img src="../assets/文章.png" alt="" /></i>
-      <a href="#">{{'作者：'+item.author+'   '+item.title}}    <span>></span> </a>
-  
+      <a href="#"
+        >{{ "作者：" + item.author + "   " + item.title }} <span>></span>
+      </a>
     </div>
-  
-   
+
     <div class="page"></div>
   </el-card>
 </template>
     
 <script setup>
 import { getWen } from "../network/api.js";
-import { reactive} from 'vue'
+import { reactive } from "vue";
 // import {onMounted} from 'vue'
-const Wenlist = reactive([])
+const Wenlist = reactive([]);
 
-
-getWen().then(res=>{
-    Wenlist.value =  res.data
-})  
-
+getWen().then((res) => {
+  Wenlist.value = res.data;
+});
 </script>
     
 <style>
@@ -66,7 +64,7 @@ i img {
   margin-left: 5px;
   margin-right: 5px;
 }
-a span{
+a span {
   float: right;
 }
 </style>

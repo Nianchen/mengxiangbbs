@@ -1,30 +1,66 @@
 <template>
-    <div>
-        <span>活动缩影</span>
-         <el-tabs v-model="activeName" class="demo-tabs" @tab-click="handleClick">
-    <el-tab-pane label="21级" name="first">21</el-tab-pane>
-    <el-tab-pane label="20级" name="second">20</el-tab-pane>
-     <el-tab-pane label="团建" name="third">快乐团建</el-tab-pane>
-
-  </el-tabs>
-    </div>
+  <div>
+    <span>活动安排</span>
+    <el-tabs v-model="activeName" class="demo-tabs" @tab-click="handleClick">
+      <el-tab-pane label="21级" name="first">
+        <div class="time">
+          <el-timeline>
+          <el-timeline-item
+            v-for="(activity, index) in activities"
+            :key="index"
+            :timestamp="activity.timestamp"
+          >
+            {{ activity.content }}
+          </el-timeline-item>
+        </el-timeline>
+        </div>
+        
+      </el-tab-pane>
+      <el-tab-pane label="20级" name="second">
+      <div class="time">
+          <el-timeline>
+          <el-timeline-item
+            v-for="(activity, index) in activities"
+            :key="index"
+            :timestamp="activity.timestamp"
+          >
+            {{ activity.content }}
+          </el-timeline-item>
+        </el-timeline>
+        </div>
+      </el-tab-pane>
+      <el-tab-pane label="团建" name="third">快乐团建</el-tab-pane>
+    </el-tabs>
+  </div>
 </template>
     
 <script setup >
- import { ref } from 'vue'
-// import { TabsPaneContext } from 'element-plus'
+import { ref } from "vue";
 
-const activeName = ref('first')
-
+const activeName = ref("first");
+const activities = [
+  {
+    content: "Event start",
+    timestamp: "2018-04-15",
+  },
+  {
+    content: "Approved",
+    timestamp: "2018-04-13",
+  },
+  {
+    content: "Success",
+    timestamp: "2018-04-11",
+  },
+];
 const handleClick = (tab, event) => {
-  console.log(tab, event)
-}
+  console.log(tab, event);
+};
 </script>
     
 <style>
-    .demo-tabs > .el-tabs__content {
-  color: #6b778c;
-  font-size: 32px;
-  font-weight: 600;
+.time{
+  position: relative;
+  left: -8%;
+  top: 20px;
 }
 </style>

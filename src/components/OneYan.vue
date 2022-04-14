@@ -1,31 +1,19 @@
 <template>
   <div class="OneYan">
     <h3>每日毒药</h3>
-
     <p>{{ demo }}</p>
-    
   </div>
 </template>
 
 <script>
 import { ref } from "vue";
-import axios from "axios";
-import { computed } from "vue";
+
 export default {
   setup() {
-    const demo = ref("");
-    const data = ref("");
-    const New = computed(() => {
-      return data.value + "123123";
-    });
-    axios.get("https://v1.hitokoto.cn/").then((res) => {
-      demo.value = res.data.hitokoto;
-    });
+    const demo = ref("123");
 
     return {
       demo,
-      data,
-      New,
     };
   },
 };

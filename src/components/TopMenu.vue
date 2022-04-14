@@ -6,7 +6,7 @@
         :default-active="`/index`"
         class="el-menu-demo"
         mode="horizontal"
-        @select="handleSelect"
+      
         :router="true"
         
       >
@@ -17,7 +17,7 @@
       </el-menu>
     </div>
     <div class="Login">
-      <el-button type="success"  @click="open">
+      <el-button type="success" >
         <router-link to="Login">登录</router-link>
       
         </el-button>

@@ -24,16 +24,14 @@
     </div>
   </div>
 </template>
-    
+
 <script setup >
 import Aricle from '../components/Aricle.vue'
 import DailyLiving from '../components/DailyLiving.vue'
 import OneYan from "../components/OneYan.vue";
-import {onActivated} from 'vue'
 
- onActivated(()=>{
-            console.log('我是 keep-alive 存在的2')
-        })
+
+
 </script>
     
 <style>
@@ -49,9 +47,9 @@ import {onActivated} from 'vue'
   left: 12%;
 }
 .swiper {
-  width: 18%;
+  width: 20%;
   position: absolute;
-  left: 1%;
+  left: 2%;
   top: 25%;
 }
 .About {
@@ -79,8 +77,8 @@ import {onActivated} from 'vue'
 .Daily{
   position: absolute;
   width: 20%;
-  height: 50%;
-  left: 80%;
+  height: 80%;
+  right: 3%;
   top: 0;
 }
 </style>

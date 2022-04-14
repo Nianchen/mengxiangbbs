@@ -1,31 +1,31 @@
 <template>
   <el-card class="box-card">
-    <template #header>
-      <div class="card-header">
-        <span>近期文章</span>
-      </div>
-    </template>
-
-    <div v-for="(item, index) in Wenlist.value" :key="index" class="text item">
-      <i> <img src="../assets/文章.png" alt="" /></i>
-      <a href="#"
-        >{{ "作者：" + item.author + "   " + item.title }} <span>></span>
-      </a>
-    </div>
+    <span>近期文章</span>
+   <el-table :data="tableData" stripe style="width: 100%">
+    <el-table-column prop="title" label="文章" width="`80%`" />
+   
+      
+    <el-table-column prop="author" label="作者" />
+  </el-table>
 
     <div class="page"></div>
   </el-card>
 </template>
     
 <script setup>
-import { getWen } from "../network/api.js";
-import { reactive } from "vue";
+// import { getWen } from "../network/api.js";
+// import { reactive } from "vue";
 // import {onMounted} from 'vue'
-const Wenlist = reactive([]);
+const tableData = [
+  {
+    title:"文章一",
+    author:"admin"
+  }
+]
 
-getWen().then((res) => {
-  Wenlist.value = res.data;
-});
+// getWen().then((res) => {
+//   Wenlist.value = res.data;
+// });
 </script>
     
 <style>
@@ -43,28 +43,11 @@ getWen().then((res) => {
   align-items: center;
 }
 
-.text {
-  font-size: 24px;
+.box-card {
+  position: relative;
+  width: 80%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-.item {
-  height: 35px;
-  line-height: 20px;
-  margin-bottom: 10px;
-  border-bottom: 1px solid black;
-}
-.item a:hover {
-  color: blue;
-}
-.box-card {
-  width: 100%;
-}
-i img {
-  height: 25px;
-  margin-left: 5px;
-  margin-right: 5px;
-}
-a span {
-  float: right;
-}
 </style>
